@@ -147,7 +147,7 @@ em, i { font-style: italic; }
   transition: background-size .35s ease;
 }
 .nav a:hover, .nav a[aria-current="page"] { background-size: 100% 1px; }
-.header-cta { display: none; }
+.header-cta { display: none; align-items: center; gap: 1.25rem; }
 
 .menu-toggle {
   display: inline-flex; align-items: center; gap: .6rem;
@@ -179,16 +179,31 @@ em, i { font-style: italic; }
 body.menu-open { overflow: hidden; }
 
 @media (min-width: 1000px) {
-  .nav, .header-cta { display: block; }
+  .nav { display: block; }
+  .header-cta { display: flex; }
   .menu-toggle, .mobile-menu { display: none; }
 }
+
+/* language toggle in the header — adapts to whatever color the header
+   currently is (light over a photo hero, dark on scroll, etc.) by using
+   currentColor rather than fixed light/dark tokens. */
+.lang-toggle { display: inline-flex; gap: .4rem; }
+.lang-toggle button {
+  background: transparent; border: 1px solid currentColor; color: inherit;
+  font: 500 .68rem/1 var(--sans); letter-spacing: .16em; text-transform: uppercase;
+  padding: .5rem .75rem; cursor: pointer; opacity: .55; transition: opacity .3s ease;
+}
+.lang-toggle button[aria-pressed="true"] { opacity: 1; }
+.lang-toggle button:hover { opacity: 1; }
+.mobile-menu .lang-toggle { margin: 1.5rem 0; }
 
 /* ---------- Footer ---------- */
 .site-footer { background: var(--charcoal); color: var(--on-dark); padding-block: clamp(4rem, 8vw, 6.5rem) 2.5rem; }
 .site-footer__grid { display: grid; gap: 3rem; grid-template-columns: 1fr; }
 .site-footer__brand .logo { color: var(--gold-soft); }
-.site-footer__name { font-family: var(--serif); font-size: var(--step-3); margin-top: .75rem; }
-.site-footer__line { color: var(--on-dark-soft); margin-top: .75rem; font-family: var(--serif); font-style: italic; font-size: var(--step-1); }
+.site-footer__signature { display: block; height: 2.1rem; width: auto; margin-top: 1.75rem; }
+.site-footer__soullution { font-family: var(--serif); font-size: var(--step-1); color: var(--on-dark); margin-top: 1rem; }
+.site-footer__line { color: var(--on-dark-soft); margin-top: .35rem; font-family: var(--serif); font-style: italic; font-size: var(--step-1); }
 .site-footer h2 { font-family: var(--sans); font-size: var(--step--1); letter-spacing: .22em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: 1.1rem; font-weight: 500; }
 .site-footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .4rem; }
 .site-footer ul a { text-decoration: none; color: var(--on-dark-soft); transition: color .3s; }
@@ -290,10 +305,10 @@ body.menu-open { overflow: hidden; }
 
 /* ---------- SoulFlow preview ---------- */
 .soulflow-preview { background: var(--parchment); padding-block: var(--section); overflow: hidden; }
-.sfp__head { display: grid; gap: 1.25rem; margin-bottom: clamp(2.5rem, 6vw, 4.5rem); }
+.sfp__head { display: grid; gap: 1.25rem; margin-bottom: clamp(2.5rem, 6vw, 4.5rem); justify-items: center; text-align: center; }
 .sfp__title { font-size: var(--step-5); line-height: .9; letter-spacing: -.03em; }
 .sfp__title em { color: var(--burgundy); }
-.sfp__tag { font-family: var(--serif); font-style: italic; font-size: var(--step-2); color: var(--ink-soft); }
+.sfp__logo { display: block; width: clamp(16rem, 34vw, 27rem); height: auto; }
 .sfp__mosaic { display: grid; gap: .75rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .sfp__mosaic figure { margin: 0; overflow: hidden; background: var(--ivory); }
 .sfp__mosaic img { width: 100%; height: 100%; object-fit: cover; }
@@ -325,13 +340,19 @@ body.menu-open { overflow: hidden; }
 /* ---------- Voice / poetry ---------- */
 .voice { padding-block: var(--section); }
 .voice__page { max-width: 44rem; margin-inline: auto; display: grid; gap: 2.25rem; justify-items: center; text-align: center; }
-.voice__poem-title { margin: 0; font-family: var(--serif); font-style: italic; font-size: var(--step-1); letter-spacing: .04em; color: var(--ink-soft); }
+.voice__poem-title { margin: 0 0 .85rem; font-family: var(--serif); font-size: var(--step-4); line-height: 1.1; letter-spacing: -.01em; color: var(--burgundy); }
 .voice__poem { margin: 0; font-family: var(--serif); font-size: var(--step-2); line-height: 1.35; white-space: pre-line; }
 .voice__sign { display: grid; gap: .6rem; justify-items: center; }
 .voice__byline { margin: 0; font-family: var(--serif); font-style: italic; font-size: var(--step-1); color: var(--burgundy); }
 .voice__signature { width: 220px; height: auto; }
-.voice__paths { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem 2rem; }
 .voice__mark { width: 1px; height: 4rem; background: var(--gold); }
+.voice__more { display: flex; justify-content: center; }
+
+/* ---------- Intuitive Poetry page (poetry.html) ---------- */
+.poetry-hero { padding-top: calc(var(--header-h) + env(safe-area-inset-top, 0px) + 3rem); padding-bottom: var(--section); text-align: center; }
+.poetry-hero__inner { max-width: 40rem; margin-inline: auto; display: grid; gap: 1rem; justify-items: center; }
+.poetry-hero__inner h1 { font-family: var(--serif); font-size: var(--step-5); line-height: .95; }
+.poetry-hero__inner p:last-child { font-family: var(--serif); font-style: italic; color: var(--ink-soft); font-size: var(--step-1); max-width: 32rem; }
 
 /* ---------- YouTube click-to-play card ----------
    A real thumbnail of the actual video, in the portrait shape it was
@@ -395,19 +416,26 @@ body.menu-open { overflow: hidden; }
 
 /* ---------- iii Jewelry ---------- */
 .jewelry { padding-block: calc(var(--section) + 1rem) var(--section); }
-.jewelry__grid { display: grid; gap: 3rem; align-items: center; }
-.jewelry__text { display: grid; gap: 1.5rem; }
-.jewelry__text h2 { font-size: var(--step-4); }
+.jewelry__header { max-width: 40rem; margin-inline: auto; margin-bottom: clamp(2rem, 5vw, 3rem); display: grid; gap: 1rem; justify-items: center; text-align: center; }
 .jewelry__tag { letter-spacing: .32em; }
-.jewelry__links { display: grid; gap: .5rem; justify-items: start; }
-.jewelry__plates { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: .75rem; padding-bottom: 1.5rem; }
-.jewelry__plate {
-  aspect-ratio: 3 / 4; background: var(--parchment); margin: 0;
-  display: grid; place-items: center; text-align: center; padding: 1rem;
-  color: var(--ink-soft); font-size: .7rem; letter-spacing: .14em; text-transform: uppercase;
-  border: 1px dashed var(--gold);
+.jewelry__logo-heading { margin: 0; }
+/* The mark is a full "iii Jewelry" wordmark on its own — it replaces the
+   text heading rather than sitting beside it, so it can run large without
+   the brand name being said twice. */
+.jewelry__logo { display: block; width: clamp(11rem, 22vw, 15rem); height: auto; }
+.jewelry__grid { display: grid; gap: 2.5rem; align-items: center; }
+.jewelry__text { display: grid; gap: 1.5rem; }
+/* Image → action: the CTAs sit directly beneath the piece that prompts
+   them, not off in the body copy where they lose the connection. */
+.jewelry__links { display: grid; gap: .5rem; justify-items: center; text-align: center; }
+/* Floating cutout: no box, no per-photo background — the piece sits
+   directly on the page, alone, as the single focal point. */
+.jewelry__feature { display: grid; justify-items: center; gap: 1.25rem; padding-block: 1rem; }
+.jewelry__feature-link { display: block; }
+.jewelry__hero-img {
+  display: block; width: min(72%, 17rem); max-width: 100%; height: auto; margin-inline: auto;
+  filter: drop-shadow(0 1.75rem 1.5rem rgba(30, 20, 10, .22));
 }
-.jewelry__plate:nth-child(2) { transform: translateY(1.5rem); }
 @media (min-width: 900px) {
   .jewelry__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(3rem, 7vw, 7rem); }
 }
@@ -432,6 +460,10 @@ body.menu-open { overflow: hidden; }
 
 /* ---------- Contact form ---------- */
 .contact-form { width: 100%; max-width: 30rem; display: grid; gap: 1.4rem; text-align: left; margin-top: .5rem; }
+.contact-form__context {
+  margin: -.4rem 0 0; padding: .5rem .9rem; border-left: 2px solid var(--gold-soft);
+  font-size: var(--step--1); color: var(--on-dark-soft);
+}
 .contact-form__row { display: grid; gap: .4rem; }
 .contact-form label {
   font-size: var(--step--1); letter-spacing: .14em; text-transform: uppercase; color: var(--on-dark-soft);
@@ -496,24 +528,34 @@ body.menu-open { overflow: hidden; }
 .sf-hero__media { margin: 0 calc(var(--gutter) * -1); }
 .sf-hero__media img { width: 100%; aspect-ratio: 1170 / 1231; object-fit: cover; }
 .sf-hero__text { display: grid; gap: 1rem; padding-block: 2.5rem 3.5rem; align-content: end; }
-.sf-hero__title { font-size: var(--step-5); line-height: .88; letter-spacing: -.03em; }
-.sf-hero__title em { color: var(--gold-soft); }
-.sf-hero__tag { font-family: var(--serif); font-style: italic; font-size: var(--step-2); color: var(--on-dark-soft); }
-.sf-hero .btn { justify-self: start; margin-top: .75rem; }
-.sf-hero .btn:hover { background: var(--ivory); color: var(--charcoal); border-color: var(--ivory); }
 @media (min-width: 900px) {
   .sf-hero__grid { grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: clamp(2rem, 5vw, 5rem); align-items: end; }
   .sf-hero__media { margin: 0 calc(var(--gutter) * -1) 0 0; order: 2; }
   .sf-hero__media img { max-height: calc(100svh - var(--header-h)); }
   .sf-hero__text { padding-block: 3rem 4.5rem; }
-  .sf-hero__title { font-size: clamp(3rem, 1.5rem + 4.2vw, 6.5rem); }
 }
 
 .sf-intro { padding-block: var(--section); }
+.sf-intro__logo-row { display: flex; justify-content: center; margin-bottom: clamp(2.5rem, 6vw, 4rem); }
+.sf-intro__logo { display: block; width: clamp(14rem, 28vw, 22rem); height: auto; }
 .sf-intro__grid { display: grid; gap: 2rem; }
 .sf-intro__big { font-family: var(--serif); font-size: var(--step-3); line-height: 1.12; max-width: 20ch; }
 .sf-intro__big em { color: var(--sf-clay); }
 @media (min-width: 900px) { .sf-intro__grid { grid-template-columns: 7fr 4fr; align-items: end; gap: 6rem; } }
+
+.sf-remembrance { padding-block: 0 var(--section); }
+.sf-remembrance__grid { display: grid; gap: clamp(2rem, 5vw, 3rem); }
+.sf-remembrance__head { max-width: 36rem; }
+.sf-remembrance__head h2 { font-size: var(--step-3); margin-top: .5rem; }
+.sf-remembrance__head .prose { margin-top: 1rem; color: var(--ink-soft); }
+.sf-remembrance__list { list-style: none; margin: 0; padding: 0; display: grid; gap: clamp(1.5rem, 4vw, 2rem); }
+.sf-remembrance__list li { border-top: 1px solid var(--rule); padding-top: 1.1rem; }
+.sf-remembrance__num { display: block; font-family: var(--serif); font-size: var(--step-2); color: var(--sf-clay); margin-bottom: .35rem; }
+.sf-remembrance__list h3 { font-family: var(--serif); font-size: var(--step-1); margin: 0 0 .4rem; }
+.sf-remembrance__list p { color: var(--ink-soft); font-size: var(--step--1); max-width: 28rem; margin: 0; }
+@media (min-width: 700px) {
+  .sf-remembrance__list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; }
+}
 
 .sf-three { padding-block: 0 var(--section); }
 .sf-row { display: grid; gap: 1.5rem; align-items: center; padding-block: clamp(2rem, 5vw, 4rem); border-top: 1px solid var(--rule); }
@@ -529,6 +571,28 @@ body.menu-open { overflow: hidden; }
   .sf-row--connect { grid-template-columns: 3fr 5fr 3fr; }
   .sf-row--connect figure { order: -1; }
 }
+
+.sf-offerings { padding-block: 0 var(--section); }
+.sf-offerings__head { margin-bottom: clamp(2rem, 5vw, 3.5rem); display: grid; gap: 1rem; max-width: 34rem; }
+.sf-offerings__head h2 { font-size: var(--step-3); }
+.sf-offerings__list { list-style: none; margin: 0; padding: 0; display: grid; gap: .9rem 2rem; font-family: var(--serif); font-size: var(--step-1); }
+.sf-offerings__list li { padding-left: 1.4em; position: relative; }
+.sf-offerings__list li::before { content: ""; position: absolute; left: 0; top: .65em; width: .5em; height: 1px; background: var(--sf-clay); }
+@media (min-width: 700px) { .sf-offerings__list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.sf-addon { margin-top: clamp(2rem, 5vw, 3rem); border: 1px solid var(--rule); padding: clamp(1.5rem, 4vw, 2.5rem); display: grid; gap: .5rem; max-width: 40rem; }
+.sf-addon .label { color: var(--sf-clay); }
+.sf-addon p:last-child { color: var(--ink-soft); }
+
+.sf-flow { list-style: none; margin: 0 0 .75rem; padding: 0; display: grid; gap: .55rem; counter-reset: flow; max-width: 34rem; }
+.sf-flow li { counter-increment: flow; display: flex; gap: .9rem; align-items: baseline; font-family: var(--serif); font-size: var(--step-1); color: var(--charcoal); }
+.sf-flow li::before { content: counter(flow, decimal-leading-zero); font-family: var(--sans); font-size: var(--step--1); color: var(--sf-clay); letter-spacing: .05em; }
+.sf-flow__meta { font-size: var(--step--1); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: clamp(2rem, 5vw, 3rem); }
+
+.sf-value { list-style: none; margin: 1.25rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: .6rem; }
+.sf-value li { border: 1px solid var(--rule); padding: .5rem 1rem; font-size: var(--step--1); letter-spacing: .06em; color: var(--ink-soft); }
+.sf-host-detail { margin-top: 1.75rem; display: grid; gap: .5rem; }
+.sf-host-detail p { color: var(--ink-soft); max-width: 30rem; }
+.sf-host-detail .label { color: var(--ink-soft); }
 
 .sf-sequence { background: var(--parchment); padding-block: var(--section); overflow: hidden; }
 .sf-sequence__head { margin-bottom: clamp(2.5rem, 6vw, 4rem); display: grid; gap: 1rem; }
@@ -617,6 +681,133 @@ body.menu-open { overflow: hidden; }
 .sp-invite h2 em { color: var(--gold-soft); }
 .sp-invite p { color: var(--on-dark-soft); }
 .sp-invite__ask { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem 1.5rem; font-size: var(--step--1); letter-spacing: .18em; text-transform: uppercase; color: var(--gold-soft); }
+
+/* ==========================================================================
+   INTUITIVE SOUL GUIDE
+   ========================================================================== */
+.page-soulguide { background: var(--ivory); }
+
+/* language toggle, sitewide (EN/ES). !important because a same-specificity
+   component rule elsewhere in this file (whichever one happens to be
+   written later) would otherwise silently win the tie and show both
+   languages at once — that's what caused EN/ES to render mixed together
+   under "What Each Session May Include" on the Soul Guide page. */
+body .lang-es { display: none !important; }
+body[data-lang="es"] .lang-en { display: none !important; }
+body[data-lang="es"] .lang-es { display: revert !important; }
+/* .lang-toggle itself is styled once, sitewide, in the header block above */
+
+.sg-hero { background: var(--plum); color: var(--on-dark); padding-top: calc(var(--header-h) + env(safe-area-inset-top, 0px)); overflow: hidden; }
+.sg-hero__grid { display: grid; }
+.sg-hero__media { margin: 0 calc(var(--gutter) * -1); }
+.sg-hero__media img { width: 100%; aspect-ratio: 800 / 1067; object-fit: cover; }
+.sg-hero__text { display: grid; gap: 1.1rem; padding-block: 2.5rem 3.5rem; align-content: end; }
+.sg-hero__title { font-size: var(--step-5); line-height: .88; letter-spacing: -.03em; }
+.sg-hero__title em { color: var(--gold-soft); }
+.sg-hero__line { font-family: var(--serif); font-size: var(--step-2); line-height: 1.3; max-width: 26ch; color: var(--on-dark); }
+.sg-hero__meta { font-size: var(--step--1); letter-spacing: .14em; text-transform: uppercase; color: var(--gold-soft); }
+.sg-hero .btn { justify-self: start; margin-top: .25rem; }
+.sg-hero .btn--solid { background: var(--gold); border-color: var(--gold); color: var(--plum); }
+.sg-hero .btn--solid:hover { background: var(--gold-soft); border-color: var(--gold-soft); }
+.sg-hero__lang { margin-top: .5rem; }
+@media (min-width: 900px) {
+  .sg-hero__grid { grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: clamp(2rem, 5vw, 5rem); align-items: end; }
+  .sg-hero__media { margin: 0 calc(var(--gutter) * -1) 0 0; order: 2; }
+  .sg-hero__media img { max-height: calc(100svh - var(--header-h)); }
+  .sg-hero__text { padding-block: 3rem 4.5rem; }
+  .sg-hero__title { font-size: clamp(3rem, 1.5rem + 4.2vw, 6rem); }
+}
+
+.sg-intro { padding-block: var(--section); }
+.sg-intro__grid { display: grid; gap: 2rem; }
+.sg-intro__lede { font-family: var(--serif); font-size: var(--step-3); line-height: 1.15; max-width: 22ch; }
+.sg-intro__lede em { color: var(--burgundy); }
+@media (min-width: 900px) { .sg-intro__grid { grid-template-columns: 6fr 5fr; gap: clamp(3rem, 6vw, 6rem); align-items: start; } }
+
+.sg-for { background: var(--parchment); padding-block: var(--section); }
+.sg-for__head { display: grid; gap: 1rem; margin-bottom: clamp(2rem, 5vw, 3.5rem); max-width: 34rem; }
+.sg-for__head h2 { font-size: var(--step-3); }
+.sg-for__list { list-style: none; margin: 0; padding: 0; display: grid; gap: .9rem 2rem; font-family: var(--serif); font-size: var(--step-1); }
+.sg-for__list li { padding-left: 1.4em; position: relative; }
+.sg-for__list li::before { content: ""; position: absolute; left: 0; top: .65em; width: .5em; height: 1px; background: var(--burgundy); }
+@media (min-width: 700px) { .sg-for__list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.sg-strands { padding-block: var(--section); }
+.sg-strands__head { margin-bottom: clamp(2rem, 5vw, 3.5rem); display: grid; gap: 1rem; }
+.sg-strands__head h2 { font-size: var(--step-4); }
+.sg-strands__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--rule); }
+.sg-strands__list li { display: grid; gap: .6rem; padding-block: 1.9rem; border-bottom: 1px solid var(--rule); }
+.sg-strands__num { font-family: var(--serif); font-style: italic; color: var(--gold); font-size: var(--step--1); }
+.sg-strands__list h3 { font-size: var(--step-2); }
+.sg-strands__list p { color: var(--ink-soft); max-width: 38rem; }
+@media (min-width: 760px) { .sg-strands__list li { grid-template-columns: 8rem 1fr 2fr; align-items: baseline; gap: 2rem; } }
+
+.sg-poetry { background: var(--charcoal); color: var(--on-dark); overflow: hidden; }
+.sg-poetry__grid { display: grid; }
+.sg-poetry__media { margin: 0; }
+.sg-poetry__media img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: 50% 45%; }
+.sg-poetry__text { display: grid; gap: 1.4rem; padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter); align-content: center; }
+.sg-poetry__text .label { color: var(--gold-soft); }
+.sg-poetry__text h2 { font-family: var(--serif); font-style: italic; font-size: var(--step-3); line-height: 1.2; max-width: 16ch; }
+.sg-poetry__text p { color: var(--on-dark-soft); max-width: 30rem; }
+@media (min-width: 900px) { .sg-poetry__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: center; } }
+
+.sg-offer { padding-block: var(--section); }
+.sg-offer__grid { display: grid; gap: 3rem; }
+.sg-offer__included { display: grid; gap: 1rem; align-content: start; }
+.sg-offer__included h2 { font-size: var(--step-3); margin-bottom: .5rem; }
+.sg-offer__included ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .6rem; margin-top: .5rem; }
+.sg-offer__included li { padding-block: .5rem; border-bottom: 1px solid var(--rule); font-family: var(--serif); font-size: var(--step-1); color: var(--ink-soft); }
+.sg-card { background: var(--plum); color: var(--on-dark); padding: clamp(2rem, 5vw, 3rem); display: grid; gap: 1rem; align-content: start; }
+.sg-card__name { font-family: var(--serif); font-size: var(--step-2); }
+.sg-card__price { font-family: var(--serif); font-size: var(--step-4); color: var(--gold-soft); line-height: 1; }
+.sg-card__meta { color: var(--on-dark-soft); font-size: var(--step--1); letter-spacing: .08em; }
+.sg-card .placeholder { color: var(--on-dark-soft); border-color: var(--gold-soft); }
+.sg-card .btn { margin-top: .5rem; justify-self: start; }
+.sg-card .btn--solid { background: var(--gold); border-color: var(--gold); color: var(--plum); }
+.sg-card .btn--solid:hover { background: var(--gold-soft); border-color: var(--gold-soft); }
+@media (min-width: 900px) { .sg-offer__grid { grid-template-columns: 6fr 5fr; gap: clamp(3rem, 6vw, 6rem); } }
+
+.sg-approach { background: var(--parchment); padding-block: var(--section); }
+.sg-approach__grid { display: grid; gap: 2.5rem; }
+.sg-approach__line { font-family: var(--serif); font-size: var(--step-2); line-height: 1.3; max-width: 32ch; margin-top: .75rem; }
+.sg-approach__tags { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .6rem; }
+.sg-approach__tags li { border: 1px solid var(--rule); padding: .5rem 1rem; font-size: var(--step--1); letter-spacing: .06em; color: var(--ink-soft); }
+@media (min-width: 900px) { .sg-approach__grid { grid-template-columns: 5fr 6fr; gap: clamp(3rem, 6vw, 6rem); align-items: start; } }
+
+.sg-invite { background: var(--burgundy); color: var(--on-dark); padding-block: var(--section); }
+.sg-invite__inner { max-width: 42rem; margin-inline: auto; display: grid; gap: 1.5rem; justify-items: center; text-align: center; }
+.sg-invite h2 { font-family: var(--serif); font-style: italic; font-size: var(--step-3); line-height: 1.25; }
+.sg-invite p { color: var(--on-dark-soft); }
+.sg-invite .btn--line:hover { background: var(--ivory); color: var(--burgundy); border-color: var(--ivory); }
+
+/* ---------- Frequency (jewelry gallery page) ---------- */
+.freq-hero { background: var(--charcoal); color: var(--ivory); padding-top: calc(var(--header-h) + env(safe-area-inset-top, 0px) + clamp(2rem, 6vw, 5rem)); padding-bottom: var(--section); text-align: center; }
+.freq-hero__inner { max-width: 40rem; margin-inline: auto; display: grid; gap: 1.25rem; justify-items: center; }
+.freq-hero__logo { width: clamp(9rem, 18vw, 13rem); height: auto; margin-bottom: .5rem; }
+.freq-hero .label--gold { color: var(--gold-soft); }
+.freq-hero h1 { font-size: var(--step-5); line-height: .92; letter-spacing: -.025em; }
+.freq-hero h1 em { color: var(--gold-soft); font-style: italic; }
+.freq-hero p { color: var(--on-dark-soft); font-family: var(--serif); font-size: var(--step-1); line-height: 1.4; max-width: 34ch; }
+.freq { padding-block: var(--section); }
+.freq__grid { display: grid; gap: clamp(2rem, 5vw, 3rem); grid-template-columns: 1fr; }
+.piece { display: grid; gap: 1rem; }
+.piece__frame {
+  margin: 0; min-height: clamp(16rem, 24vw, 19rem);
+  display: flex; align-items: flex-end; justify-content: center; padding-bottom: .5rem;
+}
+.piece__frame img {
+  width: auto; height: auto; max-width: 82%; max-height: clamp(15rem, 23vw, 18rem);
+  filter: drop-shadow(0 1.25rem 1.1rem rgba(30, 20, 10, .2));
+  transition: transform 1.2s cubic-bezier(.2,.7,.2,1);
+}
+.piece:hover .piece__frame img { transform: translateY(-.35rem); }
+.piece__name { font-family: var(--serif); font-size: var(--step-1); color: var(--gold); }
+.piece__stone { font-size: var(--step--1); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); }
+@media (min-width: 700px) {
+  .freq__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.5rem, 3vw, 2.5rem); }
+}
+.freq-note { max-width: 34rem; margin: clamp(3rem,6vw,5rem) auto 0; text-align: center; color: var(--ink-soft); font-family: var(--serif); font-style: italic; font-size: var(--step-1); }
 
 /* ---------- Motion: gentle, never hidden at rest ---------- */
 @media (prefers-reduced-motion: no-preference) {
