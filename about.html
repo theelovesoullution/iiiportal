@@ -28,13 +28,20 @@
     <nav class="nav" aria-label="Main">
       <ul>
         <li><a href="about.html" aria-current="page">About</a></li>
-        <li><a href="index.html#soul-guide">Soul Guide</a></li>
-        <li><a href="soulflow.html">SoulFlow ’N Create</a></li>
+        <li><a href="poetry.html">Poetry</a></li>
+        <li><a href="soul-guide.html">Soul Guide</a></li>
+        <li><a href="soulflow.html">SoulFlow &amp; Create</a></li>
         <li><a href="speaking.html">Speaking</a></li>
-        <li><a href="index.html#jewelry">Jewelry</a></li>
+        <li><a href="jewelry.html">Jewelry</a></li>
       </ul>
     </nav>
-    <div class="header-cta"><a class="btn btn--line" href="index.html#meet">Invite Me</a></div>
+    <div class="header-cta">
+      <div class="lang-toggle" role="group" aria-label="Language / Idioma">
+        <button type="button" data-lang-btn="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang-btn="es" aria-pressed="false">ES</button>
+      </div>
+      <a class="btn btn--line" href="index.html#meet">Invite Me</a>
+    </div>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">
       <span class="menu-toggle__label">Menu</span><span class="menu-toggle__bars" aria-hidden="true"></span>
     </button>
@@ -44,11 +51,16 @@
   <ul>
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html" aria-current="page">About</a></li>
-    <li><a href="index.html#soul-guide">Soul Guide</a></li>
-    <li><a href="soulflow.html">SoulFlow ’N Create</a></li>
+    <li><a href="poetry.html">Poetry</a></li>
+    <li><a href="soul-guide.html">Soul Guide</a></li>
+    <li><a href="soulflow.html">SoulFlow &amp; Create</a></li>
     <li><a href="speaking.html">Speaking</a></li>
-    <li><a href="index.html#jewelry">Jewelry</a></li>
+    <li><a href="jewelry.html">Jewelry</a></li>
   </ul>
+  <div class="lang-toggle lang-toggle--mobile" role="group" aria-label="Language / Idioma">
+    <button type="button" data-lang-btn="en" aria-pressed="true">EN</button>
+    <button type="button" data-lang-btn="es" aria-pressed="false">ES</button>
+  </div>
   <a class="btn btn--line" href="index.html#meet">Invite Me</a>
 </div>
 
@@ -69,9 +81,13 @@
         <h1 class="reveal reveal--2" id="about-title">
           <img class="name-logo" src="images/name-logo-burgundy-1400.png" srcset="images/name-logo-burgundy-900.png 900w, images/name-logo-burgundy-1400.png 1400w, images/name-logo-burgundy-1900.png 1900w" sizes="(min-width: 900px) 32vw, 78vw" width="1400" height="337" alt="Cyndiii Deusa">
         </h1>
-        <div class="prose reveal reveal--3">
+        <div class="prose reveal reveal--3 lang-en">
           <p>Poet, intuitive soul guide, creative facilitator &amp; speaker, exploring the places where expression, intuition, connection &amp; self-discovery come together.</p>
           <p>Through words, creative experiences, intimate gatherings &amp; conversation, I hold spaces for people to listen inward, express what lives within them &amp; reconnect with the parts of themselves asking to be seen.</p>
+        </div>
+        <div class="prose reveal reveal--3 lang-es">
+          <p>Poeta, guía intuitiva del alma, facilitadora creativa y oradora, explorando los lugares donde la expresión, la intuición, la conexión y el autodescubrimiento se encuentran.</p>
+          <p>A través de las palabras, experiencias creativas, encuentros íntimos y conversación, sostengo espacios para que las personas escuchen hacia adentro, expresen lo que vive en ellas y reconecten con las partes de sí mismas que piden ser vistas.</p>
         </div>
       </div>
     </div>
@@ -80,9 +96,13 @@
   <!-- ============ THE ROOT ============ -->
   <section class="about-story" aria-labelledby="story-title">
     <div class="wrap about-story__grid">
-      <div class="prose" style="color:inherit">
+      <div class="prose lang-en" style="color:inherit">
         <p class="label label--gold" id="story-title">The root</p>
         <p class="about-story__big">This isn’t about becoming someone else. It is about <em>remembering</em> more of who you already are.</p>
+      </div>
+      <div class="prose lang-es" style="color:inherit">
+        <p class="label label--gold">La raíz</p>
+        <p class="about-story__big">Esto no se trata de convertirte en alguien más. Se trata de <em>recordar</em> más de quien ya eres.</p>
       </div>
       <figure>
         <img src="images/sf-facilitator-800.jpg"
@@ -90,11 +110,16 @@
              sizes="(min-width: 900px) 30vw, 100vw" width="1717" height="2576"
              alt="Cyndiii Deusa laughing at a table of paints and brushes, surrounded by green."
              loading="lazy" decoding="async">
-        <figcaption>Setting the table, SoulFlow ’N Create, Tulum.</figcaption>
+        <figcaption class="lang-en">Setting the table, SoulFlow &amp; Create, Tulum.</figcaption>
+        <figcaption class="lang-es">Preparando la mesa, SoulFlow &amp; Create, Tulum.</figcaption>
       </figure>
-      <div class="prose">
+      <div class="prose lang-en">
         <p>Everything I create grows from one place: <em>love is the root of our existence.</em> Poems, gatherings, conversations, a table of paint in the open air: these are the branches.</p>
         <p>I don’t hand people answers. I hold the space where their own can surface.</p>
+      </div>
+      <div class="prose lang-es">
+        <p>Todo lo que creo nace de un mismo lugar: <em>el amor es la raíz de nuestra existencia.</em> Poemas, encuentros, conversaciones, una mesa de pintura al aire libre: estas son las ramas.</p>
+        <p>No entrego respuestas. Sostengo el espacio donde las propias pueden salir a la superficie.</p>
       </div>
     </div>
   </section>
@@ -102,11 +127,15 @@
   <!-- ============ THE BRANCHES ============ -->
   <section class="about-roots" aria-labelledby="branches-title">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head lang-en">
         <p class="label label--gold">The branches</p>
         <h2 id="branches-title">Where the expression lives</h2>
       </div>
-      <ul class="about-roots__list">
+      <div class="section-head lang-es">
+        <p class="label label--gold">Las ramas</p>
+        <h2>Donde vive la expresión</h2>
+      </div>
+      <ul class="about-roots__list lang-en">
         <li>
           <h3>Thee Love Soullution</h3>
           <p>Poetry, podcast &amp; conversation: where love is the root of our existence.</p>
@@ -115,10 +144,10 @@
         <li>
           <h3>Intuitive Soul Guide</h3>
           <p>Private guidance for reflection, reconnection &amp; realignment.</p>
-          <a class="textlink" href="index.html#contact">Book</a>
+          <a class="textlink" href="soul-guide.html">Reserve</a>
         </li>
         <li>
-          <h3>SoulFlow ’N Create</h3>
+          <h3>SoulFlow &amp; Create</h3>
           <p>Creative gatherings where people share a table and let their own expression emerge.</p>
           <a class="textlink" href="soulflow.html">Explore</a>
         </li>
@@ -133,14 +162,43 @@
           <a class="textlink" href="index.html#jewelry">Explore</a>
         </li>
       </ul>
+      <ul class="about-roots__list lang-es">
+        <li>
+          <h3>Thee Love Soullution</h3>
+          <p>Poesía, podcast y conversación: donde el amor es la raíz de nuestra existencia.</p>
+          <a class="textlink" href="index.html#poetry">Escuchar</a>
+        </li>
+        <li>
+          <h3>Intuitive Soul Guide</h3>
+          <p>Guía privada para la reflexión, la reconexión y el realineamiento.</p>
+          <a class="textlink" href="soul-guide.html">Reservar</a>
+        </li>
+        <li>
+          <h3>SoulFlow &amp; Create</h3>
+          <p>Encuentros creativos donde las personas comparten una mesa y dejan emerger su propia expresión.</p>
+          <a class="textlink" href="soulflow.html">Explorar</a>
+        </li>
+        <li>
+          <h3>Speaking &amp; Collaborations</h3>
+          <p>Podcasts, paneles, retiros, encuentros y conversaciones.</p>
+          <a class="textlink" href="speaking.html">Invitar</a>
+        </li>
+        <li>
+          <h3><img class="iii-mark" src="images/logo-iii-gold.png" alt="iii" width="84" height="34">Jewelry</h3>
+          <p>Adornos de cristal. Viste la frecuencia.</p>
+          <a class="textlink" href="index.html#jewelry">Explorar</a>
+        </li>
+      </ul>
     </div>
   </section>
 
   <section class="meet" aria-labelledby="meet-title">
     <div class="wrap">
-      <h2 id="meet-title">How shall <em>we connect?</em></h2>
+      <h2 id="meet-title" class="lang-en">How shall <em>we connect?</em></h2>
+      <h2 class="lang-es">¿Cómo <em>nos conectamos?</em></h2>
       <div class="meet__contact" style="margin-top:0">
-        <a class="btn btn--line" href="index.html#meet">Find your way in</a>
+        <a class="btn btn--line lang-en" href="index.html#meet">Find your way in</a>
+        <a class="btn btn--line lang-es" href="index.html#meet">Encuentra tu camino</a>
       </div>
     </div>
   </section>
@@ -152,18 +210,20 @@
     <div class="site-footer__grid">
       <div class="site-footer__brand">
         <a class="logo" href="index.html" aria-label="iii Portal, home"><img src="images/logo-iii-gold.png" alt="iii" width="84" height="34"></a>
-        <p class="site-footer__name"><img class="iii-mark" src="images/logo-iii-gold.png" alt="iii" width="84" height="34">Portal</p>
-        <p class="site-footer__line">Cyndiii Deusa: where love is the root of our existence.</p>
+        <img class="site-footer__signature" src="images/name-logo-gold-900.png" srcset="images/name-logo-gold-900.png 900w, images/name-logo-gold-1400.png 1400w" sizes="200px" width="1400" height="337" alt="Cyndiii Deusa">
+        <p class="site-footer__soullution">Thee Love Soullution</p>
+        <p class="site-footer__line">Where love is the root of our existence.</p>
       </div>
       <nav aria-labelledby="footer-nav">
         <h2 id="footer-nav">Portal</h2>
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html" aria-current="page">About</a></li>
-          <li><a href="index.html#soul-guide">Intuitive Soul Guide</a></li>
-          <li><a href="soulflow.html">SoulFlow ’N Create</a></li>
+          <li><a href="poetry.html">Intuitive Poetry</a></li>
+          <li><a href="soul-guide.html">Intuitive Soul Guide</a></li>
+          <li><a href="soulflow.html">SoulFlow &amp; Create</a></li>
           <li><a href="speaking.html">Speaking</a></li>
-          <li><a href="index.html#jewelry"><img class="iii-mark" src="images/logo-iii-gold.png" alt="iii" width="84" height="34">Jewelry</a></li>
+          <li><a href="jewelry.html">Jewelry</a></li>
           <li><a href="index.html#contact">Contact</a></li>
         </ul>
       </nav>

@@ -28,13 +28,20 @@
     <nav class="nav" aria-label="Main">
       <ul>
         <li><a href="about.html">About</a></li>
-        <li><a href="index.html#soul-guide">Soul Guide</a></li>
-        <li><a href="soulflow.html">SoulFlow ’N Create</a></li>
+        <li><a href="poetry.html">Poetry</a></li>
+        <li><a href="soul-guide.html">Soul Guide</a></li>
+        <li><a href="soulflow.html">SoulFlow &amp; Create</a></li>
         <li><a href="speaking.html" aria-current="page">Speaking</a></li>
-        <li><a href="index.html#jewelry">Jewelry</a></li>
+        <li><a href="jewelry.html">Jewelry</a></li>
       </ul>
     </nav>
-    <div class="header-cta"><a class="btn btn--line" href="index.html#meet">Invite Me</a></div>
+    <div class="header-cta">
+      <div class="lang-toggle" role="group" aria-label="Language / Idioma">
+        <button type="button" data-lang-btn="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang-btn="es" aria-pressed="false">ES</button>
+      </div>
+      <a class="btn btn--line" href="index.html#meet">Invite Me</a>
+    </div>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">
       <span class="menu-toggle__label">Menu</span><span class="menu-toggle__bars" aria-hidden="true"></span>
     </button>
@@ -44,11 +51,16 @@
   <ul>
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
-    <li><a href="index.html#soul-guide">Soul Guide</a></li>
-    <li><a href="soulflow.html">SoulFlow ’N Create</a></li>
+    <li><a href="poetry.html">Poetry</a></li>
+    <li><a href="soul-guide.html">Soul Guide</a></li>
+    <li><a href="soulflow.html">SoulFlow &amp; Create</a></li>
     <li><a href="speaking.html" aria-current="page">Speaking</a></li>
-    <li><a href="index.html#jewelry">Jewelry</a></li>
+    <li><a href="jewelry.html">Jewelry</a></li>
   </ul>
+  <div class="lang-toggle lang-toggle--mobile" role="group" aria-label="Language / Idioma">
+    <button type="button" data-lang-btn="en" aria-pressed="true">EN</button>
+    <button type="button" data-lang-btn="es" aria-pressed="false">ES</button>
+  </div>
   <a class="btn btn--line" href="index.html#meet">Invite Me</a>
 </div>
 
@@ -58,13 +70,16 @@
   <section class="sp-hero" aria-labelledby="sp-title">
     <div class="wrap sp-hero__grid">
       <div class="sp-hero__text">
-        <p class="label reveal">Poet · Speaker · Creator · Intuitive Voice</p>
-        <h1 class="reveal reveal--2" id="sp-title">When the voice <em>enters the room.</em></h1>
-        <p class="reveal reveal--3">Poetry, lived experience and honest conversation, carried into microphones, stages and circles.</p>
+        <p class="label reveal lang-en">Poet · Speaker · Creator · Intuitive Voice</p>
+        <p class="label reveal lang-es">Poeta · Oradora · Creadora · Voz Intuitiva</p>
+        <h1 class="reveal reveal--2 lang-en" id="sp-title">When the voice <em>enters the room.</em></h1>
+        <h1 class="reveal reveal--2 lang-es">Cuando la voz <em>entra en la sala.</em></h1>
+        <p class="reveal reveal--3 lang-en">Poetry, lived experience and honest conversation, carried into microphones, stages and circles.</p>
+        <p class="reveal reveal--3 lang-es">Poesía, experiencia vivida y conversación honesta, llevadas a micrófonos, escenarios y círculos.</p>
       </div>
       <figure class="sp-hero__figure">
         <!-- IMG_3621 — primary speaking / poetry image -->
-        <img src="images/speaking-cutout-1.png" width="235" height="633"
+        <img src="images/speaking-cutout-1.png" width="235" height="566"
              alt="Cyndiii Deusa at a microphone stand, reading from her notebook and smiling."
              fetchpriority="high" decoding="async">
       </figure>
@@ -81,11 +96,17 @@
              alt="Cyndiii Deusa standing on stage, microphone raised, mid-song under coloured lights." loading="lazy" decoding="async">
       </figure>
       <div class="sp-live__text">
-        <p class="label label--gold">Live</p>
-        <h2 id="live-title">Less a keynote. More an invitation to listen closely.</h2>
-        <div class="prose">
+        <p class="label label--gold lang-en">Live</p>
+        <p class="label label--gold lang-es">En vivo</p>
+        <h2 id="live-title" class="lang-en">Less a keynote. More an invitation to listen closely.</h2>
+        <h2 class="lang-es">Menos una conferencia. Más una invitación a escuchar de cerca.</h2>
+        <div class="prose lang-en">
           <p>I speak the way I write: from what is true, with room for what is felt. A reading can open a conversation; a conversation can find its way into a poem.</p>
           <p>Whether it’s a podcast, a panel or a circle of twelve, I come to connect rather than to perform.</p>
+        </div>
+        <div class="prose lang-es">
+          <p>Hablo de la misma forma en que escribo: desde lo verdadero, con espacio para lo que se siente. Una lectura puede abrir una conversación; una conversación puede encontrar su camino hacia un poema.</p>
+          <p>Ya sea un podcast, un panel o un círculo de doce personas, vengo a conectar, no a actuar.</p>
         </div>
         <figure class="sp-live__side">
           <div class="sp-live__duo">
@@ -94,7 +115,8 @@
             <img src="images/speaking-seated-800.jpg" sizes="10rem" width="800" height="1000"
                  alt="Cyndiii Deusa laughing mid-sentence, microphone in one hand and her poetry book in the other." loading="lazy" decoding="async">
           </div>
-          <figcaption>Sharing poetry.</figcaption>
+          <figcaption class="lang-en">Sharing poetry.</figcaption>
+          <figcaption class="lang-es">Compartiendo poesía.</figcaption>
         </figure>
       </div>
     </div>
@@ -109,16 +131,27 @@
              alt="Cyndiii Deusa standing in sunglasses, notebook in hand, smiling." loading="lazy" decoding="async">
       </figure>
       <div>
-        <div class="section-head">
+        <div class="section-head lang-en">
           <p class="label label--gold">Invitations &amp; Collaborations</p>
           <h2 id="rooms-title">The rooms I love to be in.</h2>
         </div>
-        <ul class="sp-rooms__list">
+        <div class="section-head lang-es">
+          <p class="label label--gold">Invitaciones y Colaboraciones</p>
+          <h2>Las salas donde amo estar.</h2>
+        </div>
+        <ul class="sp-rooms__list lang-en">
           <li>Keynote &amp; Guest Speaking <span>Poetry, presence &amp; a soul-deep perspective</span></li>
           <li>Podcast &amp; Media <span>Conversation that goes past the surface</span></li>
           <li>Creative Collaborations <span>Brand &amp; artist partnerships, chosen for alignment</span></li>
           <li>Events &amp; Gatherings <span>Retreats &amp; circles built for real connection</span></li>
           <li>Aligned Invitations <span>Wherever the voice belongs</span></li>
+        </ul>
+        <ul class="sp-rooms__list lang-es">
+          <li>Conferencias e Invitados <span>Poesía, presencia y una perspectiva desde el alma</span></li>
+          <li>Podcast y Medios <span>Conversación que va más allá de la superficie</span></li>
+          <li>Colaboraciones Creativas <span>Alianzas con marcas y artistas, elegidas por alineación</span></li>
+          <li>Eventos y Encuentros <span>Retiros y círculos construidos para la conexión real</span></li>
+          <li>Invitaciones Alineadas <span>Donde sea que la voz pertenezca</span></li>
         </ul>
       </div>
     </div>
@@ -127,13 +160,22 @@
   <!-- ============ INVITE ============ -->
   <section class="sp-invite" id="invite" aria-labelledby="invite-title">
     <div class="wrap sp-invite__inner">
-      <p class="label">Invitations &amp; Collaborations</p>
-      <h2 id="invite-title">Invite <em>Cyndiii.</em></h2>
-      <p>For speaking, podcast, media &amp; collaboration inquiries. Tell me about the room: who will be there, what you’re gathering around, and when.</p>
-      <ul class="sp-invite__ask" aria-label="Helpful to include">
+      <p class="label lang-en">Invitations &amp; Collaborations</p>
+      <p class="label lang-es">Invitaciones y Colaboraciones</p>
+      <h2 id="invite-title" class="lang-en">Invite <em>Cyndiii.</em></h2>
+      <h2 class="lang-es">Invita a <em>Cyndiii.</em></h2>
+      <p class="lang-en">For speaking, podcast, media &amp; collaboration inquiries. Tell me about the room: who will be there, what you’re gathering around, and when.</p>
+      <p class="lang-es">Para consultas de conferencias, podcast, medios y colaboraciones. Cuéntame sobre la sala: quién estará, en torno a qué se reúnen y cuándo.</p>
+      <ul class="sp-invite__ask lang-en" aria-label="Helpful to include">
         <li>Event</li><li>Date</li><li>Audience</li><li>Format</li>
       </ul>
-      <a class="btn btn--line" href="index.html#contact">Send an invitation</a>
+      <ul class="sp-invite__ask lang-es" aria-label="Útil incluir">
+        <li>Evento</li><li>Fecha</li><li>Audiencia</li><li>Formato</li>
+      </ul>
+      <a class="btn btn--line lang-en" href="index.html?inquiry=speaking#contact">Send an invitation</a>
+      <a class="btn btn--line lang-es" href="index.html?inquiry=speaking#contact">Enviar una invitación</a>
+      <a class="textlink lang-en" href="mailto:cyndiii@iiiportal.com" target="_blank">Prefer email? cyndiii@iiiportal.com</a>
+      <a class="textlink lang-es" href="mailto:cyndiii@iiiportal.com" target="_blank">¿Prefieres email? cyndiii@iiiportal.com</a>
     </div>
   </section>
 
@@ -144,18 +186,20 @@
     <div class="site-footer__grid">
       <div class="site-footer__brand">
         <a class="logo" href="index.html" aria-label="iii Portal, home"><img src="images/logo-iii-gold.png" alt="iii" width="84" height="34"></a>
-        <p class="site-footer__name"><img class="iii-mark" src="images/logo-iii-gold.png" alt="iii" width="84" height="34">Portal</p>
-        <p class="site-footer__line">Cyndiii Deusa: where love is the root of our existence.</p>
+        <img class="site-footer__signature" src="images/name-logo-gold-900.png" srcset="images/name-logo-gold-900.png 900w, images/name-logo-gold-1400.png 1400w" sizes="200px" width="1400" height="337" alt="Cyndiii Deusa">
+        <p class="site-footer__soullution">Thee Love Soullution</p>
+        <p class="site-footer__line">Where love is the root of our existence.</p>
       </div>
       <nav aria-labelledby="footer-nav">
         <h2 id="footer-nav">Portal</h2>
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="index.html#soul-guide">Intuitive Soul Guide</a></li>
-          <li><a href="soulflow.html">SoulFlow ’N Create</a></li>
+          <li><a href="poetry.html">Intuitive Poetry</a></li>
+          <li><a href="soul-guide.html">Intuitive Soul Guide</a></li>
+          <li><a href="soulflow.html">SoulFlow &amp; Create</a></li>
           <li><a href="speaking.html" aria-current="page">Speaking</a></li>
-          <li><a href="index.html#jewelry"><img class="iii-mark" src="images/logo-iii-gold.png" alt="iii" width="84" height="34">Jewelry</a></li>
+          <li><a href="jewelry.html">Jewelry</a></li>
           <li><a href="index.html#contact">Contact</a></li>
         </ul>
       </nav>
