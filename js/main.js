@@ -25,13 +25,37 @@
   });
 })();
 
-// Contact form: submits in place via Web3Forms so a visitor never has to
-// leave the page or have their own email app set up. Shows a plain status
-// line and resets the form on success; falls back to the mailto link next
-// to it if anything goes wrong.
+// Contact form context: every page's CTA into this shared form can tag
+// what it's about with a ?inquiry= param (e.g. index.html?inquiry=
+// soulflow-host#contact). If one is present and recognized, it renames the
+// hidden "subject" field so the email that lands in the inbox says which
+// offering and intent it's for instead of the generic default, and shows
+// a short "Regarding:" line above the form so the visitor sees the same
+// context. Unrecognized or missing params leave the form exactly as-is.
 (function () {
   var form = document.getElementById('contact-form');
   if (!form) return;
+  var subjectField = document.getElementById('cf-subject');
+  var context = document.getElementById('cf-context');
+  var TOPICS = {
+    'soulflow-join': { subject: 'SoulFlow & Create — Join a Gathering (via iii Portal)', label: 'Joining a SoulFlow & Create gathering' },
+    'soulflow-host': { subject: 'SoulFlow & Create — Hosting Inquiry (via iii Portal)', label: 'Hosting SoulFlow & Create' },
+    'speaking': { subject: 'Speaking & Collaborations Inquiry (via iii Portal)', label: 'A speaking or collaboration invitation' }
+  };
+  var params = new URLSearchParams(location.search);
+  var topic = TOPICS[params.get('inquiry')];
+  if (topic) {
+    if (subjectField) subjectField.value = topic.subject;
+    if (context) {
+      context.textContent = 'Regarding: ' + topic.label;
+      context.hidden = false;
+    }
+    if (params.has('inquiry')) {
+      params.delete('inquiry');
+      var clean = location.pathname + (params.toString() ? '?' + params.toString() : '') + location.hash;
+      history.replaceState(null, '', clean);
+    }
+  }
   var status = form.querySelector('.contact-form__status');
   var button = form.querySelector('button[type="submit"]');
 
@@ -86,6 +110,30 @@
       iframe.referrerPolicy = 'strict-origin-when-cross-origin';
       btn.replaceWith(iframe);
     });
+  });
+})();
+
+// Sitewide EN/ES toggle. Sets data-lang on <body>;
+// styles.css shows/hides the matching .lang-en / .lang-es elements.
+// Remembers the visitor's choice for next time via localStorage.
+(function () {
+  var buttons = document.querySelectorAll('[data-lang-btn]');
+  if (!buttons.length) return;
+
+  function setLang(lang) {
+    document.body.setAttribute('data-lang', lang);
+    buttons.forEach(function (b) {
+      b.setAttribute('aria-pressed', String(b.getAttribute('data-lang-btn') === lang));
+    });
+    try { localStorage.setItem('iii-lang', lang); } catch (e) {}
+  }
+
+  var saved;
+  try { saved = localStorage.getItem('iii-lang'); } catch (e) {}
+  setLang(saved === 'es' ? 'es' : 'en');
+
+  buttons.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
   });
 })();
 
